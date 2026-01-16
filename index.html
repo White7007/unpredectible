@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Surprise for You ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blush: #feeaf1;
+            --lavender: #eaddff;
+            --peach: #fff0e6;
+            --accent: #ff85a2;
+            --text: #5a4a4a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--blush);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* --- STAGE 1: COUNTDOWN OVERLAY --- */
+        #countdown-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 2000;
+            color: white;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        #countdown-overlay::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px) brightness(0.6);
+            z-index: -1;
+            transform: scale(1.1);
+        }
+
+        .timer-box {
+            display: flex; gap: 20px; font-size: 2.5rem; font-weight: bold; margin-top: 20px;
+        }
+        .unit { display: flex; flex-direction: column; align-items: center; }
+        .label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- STAGE 2: MAIN CONTENT (Hidden initially) --- */
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 2s ease;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: linear-gradient(to bottom, var(--blush), white);
+        }
+
+        h1, h2 { font-family: 'Dancing Script', cursive; color: var(--accent); }
+        h1 { font-size: 4rem; margin-bottom: 10px; }
+        
+        section { padding: 80px 20px; max-width: 800px; margin: 0 auto; text-align: center; }
+        .card { background: white; padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px; }
+        .photo-frame { background: white; padding: 10px 10px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: rotate(-2deg); max-width: 250px; }
+        .photo-frame img { width: 100%; border-radius: 2px; }
+
+        /* Secret Heart */
+        #secret-heart {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--accent); color: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 5px 15px rgba(255,133,162,0.4); z-index: 1000;
+        }
+
+        .secret-msg {
+            display: none; position: fixed; bottom: 100px; right: 30px;
+            background: white; padding: 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-family: 'Dancing Script', cursive;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <div id="countdown-overlay">
+        <h2 style="color: white; font-size: 2rem;">Counting down to your special day...</h2>
+        <div class="timer-box">
+            <div class="unit"><span id="d">00</span><span class="label">Days</span></div>
+            <div class="unit"><span id="h">00</span><span class="label">Hrs</span></div>
+            <div class="unit"><span id="m">00</span><span class="label">Min</span></div>
+            <div class="unit"><span id="s">00</span><span class="label">Sec</span></div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="hero">
+            <h1 style="animation: fadeIn 3s;">Happy Birthday, My Love ❤️</h1>
+            <p>I've been waiting for this moment.</p>
+        </div>
+
+        <section id="letter">
+            <div class="card">
+                <h2>A Letter From My Heart</h2>
+                <p style="text-align: left; line-height: 1.8; margin-top: 20px;">
+                    Dearest [Name],<br><br>
+                    This little corner of the internet was built just for you. Every pixel, every word, and every heart is a reminder of how much I love you.
+                    Today is all about you, and I hope this surprise makes you smile.<br><br>
+                    Happy Birthday, gorgeous.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Our Favorite Moments</h2>
+            <div class="gallery">
+                <div class="photo-frame"><img src="https://via.placeholder.com/250x300"><p style="font-family: 'Dancing Script'; margin-top:10px;">The best day ✨</p></div>
+                <div class="photo-frame" style="transform: rotate(3deg);"><img src="https://via.placeholder.com/250x300"><p style="font-family: 'Dancing Script'; margin-top:10px;">Forever to go ❤️</p></div>
+            </div>
+        </section>
+
+        <section style="padding-bottom: 100px;">
+            <h2>Make a Wish ✨</h2>
+            <div style="font-size: 4rem; margin: 20px;">🎂</div>
+            <p><i>You deserve everything beautiful in this world.</i></p>
+            <br>
+            <h2 style="font-size: 2rem;">Forever yours, [Your Name]</h2>
+        </section>
+
+        <div id="secret-heart" onclick="toggleSecret()">❤️</div>
+        <div id="secret-msg" class="secret-msg">You’re my favorite person in every universe. ✨</div>
+    </div>
+
+    <script>
+        // --- 1. SET THE BIRTHDAY DATE HERE ---
+        const birthdayDate = new Date("January 17, 2026 00:00:00").getTime();
+
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = birthdayDate - now;
+
+            // Calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display
+            document.getElementById("d").innerText = days;
+            document.getElementById("h").innerText = hours;
+            document.getElementById("m").innerText = minutes;
+            document.getElementById("s").innerText = seconds;
+
+            // --- 2. WHEN COUNTDOWN ENDS ---
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                revealBirthday();
+            }
+        }, 1000);
+
+        function revealBirthday() {
+            const overlay = document.getElementById("countdown-overlay");
+            const main = document.getElementById("main-content");
+            
+            overlay.style.opacity = "0"; // Fade out
+            setTimeout(() => {
+                overlay.style.display = "none";
+                main.style.display = "block";
+                setTimeout(() => { main.style.opacity = "1"; }, 50);
+            }, 1500);
+        }
+
+        function toggleSecret() {
+            const msg = document.getElementById('secret-msg');
+            msg.style.display = (msg.style.display === 'block') ? 'none' : 'block';
+        }
+        
+        // Debugging tip: To test the transition immediately, 
+        // you can just call revealBirthday() in the console!
+    </script>
+</body>
+</html>
